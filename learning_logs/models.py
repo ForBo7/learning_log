@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Topic(models.Model):
     """A topic the user is learning about."""
@@ -22,4 +23,7 @@ class Entry(models.Model):
 
     def __str__(self):
         """Return a string representation of the model."""
-        return f"{self.text[:50]}..."
+        if len(self.text) > 50:
+            return f"{self.text[:50]}..."
+        else:
+            return self.text
